@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode
-class Srcipts implements Serializable
+public class Scripts implements Serializable
 {
 
     @SerializedName("scripts")

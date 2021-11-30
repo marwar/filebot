@@ -1,0 +1,41 @@
+{
+  "scripts": [
+    {
+      "name":"Delete reports",
+      "matchers": [
+        {
+          "matcherRule": "nameContains",
+          "param":"RAPORT"
+        },
+        {
+          "matcherRule": "extensionIsNot",
+          "param":"pdf"
+        }
+      ],
+      "action": {
+        "actionName": "delete"
+      }
+    },
+    {
+      "name":"Move old photos to MY_ALBUM_2020",
+      "matchers": [
+        {
+          "matcherRule": "nameContains",
+          "param":"IMG"
+        },
+        {
+          "matcherRule": "modifiedDateLessThen",
+          "param": "20211231"
+        },
+        {
+          "matcherRule": "modifiedDateGreaterThen",
+          "param": "20200101"
+        }
+      ],
+      "action": {
+        "actionName":"moveTo",
+        "actionParam":"C:/Users/Andrzej/MY_ALBUM_2020"
+      }
+    }
+  ]
+}
