@@ -1,18 +1,16 @@
 package pl.marwar.filebot;
 
 import org.apache.commons.cli.Options;
+import pl.marwar.filebot.actions.ActionsFactory;
+import pl.marwar.filebot.files.GetFile;
 import pl.marwar.filebot.options.FileBotOptions;
 import pl.marwar.filebot.parameters.FileBotParameters;
 import pl.marwar.filebot.scripts.Scripts;
 import pl.marwar.filebot.scripts.ScriptsGetter;
 
-import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.function.Supplier;
 
 public class FileBot {
     public static  void main(String[] args) {
@@ -25,21 +23,19 @@ public class FileBot {
 
         Scripts scripts = ScriptsGetter.getScripts(parameters);
 
-        List<Path> paths = getFileListFromPath(parameters.getDirPath());
+        List<Path> paths = GetFile.getFileListFromPath(parameters.getDirPath());
+
         paths.forEach(x -> System.out.println(x));
 
-    }
-
-    private static List<Path> getFileListFromPath(Path dirPath) {
-        List<Path> result = new ArrayList<>();
-        try (Stream<Path> walk = Files.walk(dirPath,1)) {
-            result = walk.filter(Files::isRegularFile)
-                    .collect(Collectors.toList());
-        } catch (IOException e) {
-            System.out.println("problem z przeszukiwaniem katalogu");
-            System.exit(1);
-        }
-        return result;
+        scripts.getScripts().stream().parallel().forEach(script -> {
+            paths.stream().filter(path-> {
+                // TODO weryfikacja czy plik spełnia wymagania
+                return false;
+            }).forEach(path -> {
+                Supplier<ActionsFactory> actionsFactory = ActionsFactory::new;
+                actionsFactory.get().getAction(script.getAction().getActionName());
+            });
+        } );
     }
 
 }
