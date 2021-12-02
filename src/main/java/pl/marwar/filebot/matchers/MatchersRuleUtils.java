@@ -9,7 +9,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class MatchersRuleUtils {
-    private static Supplier<MatchersFactory> matchersFactory = MatchersFactory::new;
+    private static final Supplier<MatchersFactory> matchersFactory = MatchersFactory::new;
 
     public static List<Boolean> getMatchersRuleResultList(Script script, Path path) {
         return script.getMatchers().stream().map(matcher -> getMatchResult(matchersFactory, path, matcher)).collect(Collectors.toList());
