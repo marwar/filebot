@@ -3,19 +3,19 @@ package pl.marwar.filebot.matchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.InjectMocks;
+import pl.marwar.filebot.CommonMethodsForTesting;
 import pl.marwar.filebot.scripts.Matcher;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.attribute.FileTime;
 
 public class ModifiedDateGreaterThenTest {
     @InjectMocks
     private ModifiedDateGreaterThen modifiedDateGreaterThen = new ModifiedDateGreaterThen();
 
-    Path path = Paths.get("src", "test", "resources", "testFile.txt");
+    Path path = CommonMethodsForTesting.getOnlyPathTestFile();
 
     @Test
     public void testReturnTrue() throws IOException {

@@ -3,6 +3,7 @@ package pl.marwar.filebot.actions;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.InjectMocks;
+import pl.marwar.filebot.CommonMethodsForTesting;
 import pl.marwar.filebot.files.FileUtils;
 import pl.marwar.filebot.scripts.Action;
 
@@ -18,10 +19,7 @@ public class MoveToTest {
 
     @Test
     public void testMoveToIsTheSameDir() throws IOException {
-        Path path = Paths.get("src", "test", "resources", "testFile.txt");
-        if (Files.notExists(path)) {
-            Files.createFile(path);
-        }
+        Path path = CommonMethodsForTesting.getPathTestFile();
         Action action = new Action("moveTo", String.valueOf(path));
         moveTo.execute(path, action);
 
@@ -31,10 +29,7 @@ public class MoveToTest {
 
     @Test
     public void testMoveToOtherDict() throws IOException {
-        Path path = Paths.get("src", "test", "resources", "testFile.txt");
-        if (Files.notExists(path)) {
-            Files.createFile(path);
-        }
+        Path path = CommonMethodsForTesting.getPathTestFile();
         Action action = new Action("moveTo", "src/test/resources/move");
         moveTo.execute(path, action);
 

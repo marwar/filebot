@@ -36,6 +36,40 @@
         "actionName": "moveTo",
         "actionParam": "C:/Users/Andrzej/MY_ALBUM_2020"
       }
+    },
+    {
+      "name": "Copy Grim Images",
+      "matchers": [
+        {
+          "matcherRule": "nameContains",
+          "param": "Grim"
+        },
+        {
+          "matcherRule": "extensionIs",
+          "param": "png"
+        }
+      ],
+      "action": {
+        "actionName": "copyTo",
+        "actionParam": "C:/testApp/png"
+      }
+    },
+    {
+      "name": "Move jpg edit 20171001-20171032",
+      "matchers": [
+        {
+          "matcherRule": "extensionIs",
+          "param": "jpg"
+        },
+        {
+          "matcherRule": "modifiedDateGreaterThen",
+          "param": "20171001"
+        }
+      ],
+      "action": {
+        "actionName": "moveTo",
+        "actionParam": "C:/testApp/jpg"
+      }
     }
   ]
 }

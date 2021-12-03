@@ -2,13 +2,20 @@ package pl.marwar.filebot.files;
 
 import org.apache.commons.lang3.StringUtils;
 import pl.marwar.filebot.scripts.Action;
+import pl.marwar.filebot.scripts.Matcher;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
+import java.util.TimeZone;
 
 public class FileUtils {
     public static Path getPathAndVeryficationDirectoryToAction(Path pathFile, Action action) throws IOException {
@@ -37,4 +44,15 @@ public class FileUtils {
                 .map(Path::toFile)
                 .forEach(File::delete);
     }
+
+    public static LocalDate getLastModifiedFileDate(BasicFileAttributes fileAttributes) {
+        return LocalDateTime.ofInstant(
+                Instant.ofEpochSecond(fileAttributes.lastModifiedTime().toMillis()), TimeZone
+                        .getDefault().toZoneId()).toLocalDate();
+    }
+
+    public static LocalDate getDateFromMatcherParam(Matcher matcher) {
+        return LocalDate.parse(matcher.getParam(), DateTimeFormatter.ofPattern("yyyyMMdd"));
+    }
+
 }

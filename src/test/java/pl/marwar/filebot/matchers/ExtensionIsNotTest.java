@@ -3,16 +3,16 @@ package pl.marwar.filebot.matchers;
 import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.InjectMocks;
+import pl.marwar.filebot.CommonMethodsForTesting;
 import pl.marwar.filebot.scripts.Matcher;
 
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class ExtensionIsNotTest {
     @InjectMocks
     private ExtensionIsNot extensionIsNot = new ExtensionIsNot();
 
-    Path path = Paths.get("src", "test", "resources", "testFile.txt");
+    Path path = CommonMethodsForTesting.getOnlyPathTestFile();
 
     @Test
     public void testReturnTrue() {
