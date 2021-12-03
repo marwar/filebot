@@ -21,7 +21,7 @@ public class ModifiedDateLessThenTest {
     public void testReturnFalse() throws IOException {
         // 2021-12-01
         long milis = 1638316800;
-        FileTime fileTime = FileTime.fromMillis(milis);
+        FileTime fileTime = FileTime.fromMillis(System.currentTimeMillis());
         Files.setLastModifiedTime(path, fileTime);
         Matcher matcher = new Matcher("modifiedDateLessThen", "20211030");
         Assert.assertFalse(modifiedDateLessThen.match(path, matcher));
@@ -31,7 +31,7 @@ public class ModifiedDateLessThenTest {
     public void testReturnTrue() throws IOException {
         // 2021-12-01
         long milis = 1638316800;
-        FileTime fileTime = FileTime.fromMillis(milis);
+        FileTime fileTime = FileTime.fromMillis(System.currentTimeMillis());
         Files.setLastModifiedTime(path, fileTime);
         Matcher matcher = new Matcher("modifiedDateLessThen", "20211231");
         Assert.assertTrue(modifiedDateLessThen.match(path, matcher));

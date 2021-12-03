@@ -62,6 +62,10 @@
           "param": "jpg"
         },
         {
+          "matcherRule": "modifiedDateLessThen",
+          "param": "20171031"
+        },
+        {
           "matcherRule": "modifiedDateGreaterThen",
           "param": "20171001"
         }

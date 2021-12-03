@@ -12,10 +12,9 @@ import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.time.Instant;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
-import java.util.TimeZone;
 
 public class FileUtils {
     public static Path getPathAndVeryficationDirectoryToAction(Path pathFile, Action action) throws IOException {
@@ -46,9 +45,9 @@ public class FileUtils {
     }
 
     public static LocalDate getLastModifiedFileDate(BasicFileAttributes fileAttributes) {
-        return LocalDateTime.ofInstant(
-                Instant.ofEpochSecond(fileAttributes.lastModifiedTime().toMillis()), TimeZone
-                        .getDefault().toZoneId()).toLocalDate();
+        return Instant.ofEpochMilli(fileAttributes.lastModifiedTime().toMillis()).atZone(ZoneId.systemDefault())
+                .toLocalDate();
+
     }
 
     public static LocalDate getDateFromMatcherParam(Matcher matcher) {
