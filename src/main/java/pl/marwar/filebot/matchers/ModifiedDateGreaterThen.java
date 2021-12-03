@@ -19,6 +19,7 @@ public class ModifiedDateGreaterThen implements Matchers {
         try {
             BasicFileAttributes fileAttributes =
                     Files.readAttributes(pathFile, BasicFileAttributes.class);
+
             LocalDate lastModifiedFileDate = LocalDateTime.ofInstant(
                     Instant.ofEpochSecond(fileAttributes.lastModifiedTime().toMillis()), TimeZone
                             .getDefault().toZoneId()).toLocalDate();
