@@ -13,8 +13,8 @@ public class CopyTo implements TakeAction {
     public void execute(Path pathFile, Action action) {
         Path targetDirectoryPath = Paths.get(action.getActionParam());
         try {
-            System.out.println("kopiowanie: " + pathFile + "do: " + targetDirectoryPath);
-            Files.copy(pathFile,targetDirectoryPath, StandardCopyOption.REPLACE_EXISTING);
+            System.out.println("kopiowanie: " + pathFile + " do: " + targetDirectoryPath);
+            Files.copy(pathFile, targetDirectoryPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
             System.out.println("kopiowanie pliku" + pathFile + " zakończone niepowodzeniem");
         }
