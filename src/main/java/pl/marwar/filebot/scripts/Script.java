@@ -11,15 +11,14 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode
-public class Script implements Serializable
-{
+public class Script implements Serializable {
 
     @SerializedName("name")
     @Expose
     private String name;
     @SerializedName("matchers")
     @Expose
-    private List<Matcher> matchers = new ArrayList<Matcher>();
+    private List<Matcher> matchers = new ArrayList<>();
     @SerializedName("action")
     @Expose
     private Action action;

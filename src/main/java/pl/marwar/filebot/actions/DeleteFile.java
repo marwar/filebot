@@ -16,7 +16,7 @@ public class DeleteFile implements TakeAction {
             System.out.println("kasowanie: " + pathFile);
             Files.delete(pathFile);
         } catch (IOException e) {
-            System.out.println("kasowanie pliku" + pathFile + " zakończone niepowodzeniem");
+            System.out.println("kasowanie pliku " + pathFile + " zakończone niepowodzeniem");
         }
     }
 }

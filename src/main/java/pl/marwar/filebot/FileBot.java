@@ -26,15 +26,13 @@ public class FileBot {
         List<Path> pathsList = GetFile.getFileListFromPath(parameters.getDirPath());
 
         System.out.println("Pliki w katalogu:");
-        pathsList.forEach(x -> System.out.println(x));
+        pathsList.forEach(System.out::println);
 
-        pathsList.stream().forEach(path -> {
-            scripts.getScripts().stream().forEach(script -> {
-                if (FileVeryfication.isFileToRunAction(path, script)) {
-                    RunAction.runAction(script, path);
-                }
-            });
-        });
+        pathsList.parallelStream().forEach(path -> scripts.getScripts().stream().forEach(script -> {
+            if (FileVeryfication.isFileToRunAction(path, script)) {
+                RunAction.runAction(script, path);
+            }
+        }));
     }
 
 }

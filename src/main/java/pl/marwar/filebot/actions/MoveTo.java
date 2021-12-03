@@ -14,9 +14,9 @@ public class MoveTo implements TakeAction {
         Path targetDirectoryPath = Paths.get(action.getActionParam());
         try {
             System.out.println("przenoszenie: " + pathFile + "do: " + targetDirectoryPath);
-            Files.copy(pathFile,targetDirectoryPath, StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(pathFile, targetDirectoryPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            System.out.println("przenoszenie pliku" + pathFile + " zakończone niepowodzeniem");
+            System.out.println("przenoszenie pliku " + pathFile + " zakończone niepowodzeniem");
         }
     }
 }

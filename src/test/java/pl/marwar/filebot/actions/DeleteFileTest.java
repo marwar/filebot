@@ -20,7 +20,7 @@ public class DeleteFileTest {
         }
         Action action = new Action("deleteFile", null);
         deleteFile.execute(path, action);
-        Assert.assertEquals(true, Files.notExists(path));
+        Assert.assertTrue(Files.notExists(path));
         Files.createFile(path);
     }
 

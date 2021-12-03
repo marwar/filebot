@@ -7,6 +7,7 @@ import org.apache.commons.cli.*;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 @AllArgsConstructor
 @Data
@@ -26,11 +27,11 @@ public class FileBotParameters {
             log.info(e.getMessage());
             formatter.printHelp("FileBot", options);
             System.exit(1);
-        } finally {
-            Path dirPath = Paths.get(cmd.getOptionValue("dir"));
-            Path scriptsPath = Paths.get(cmd.getOptionValue("scripts"));
-            return new FileBotParameters(dirPath, scriptsPath.toAbsolutePath());
         }
+        Path dirPath = Paths.get(Objects.requireNonNull(cmd).getOptionValue("dir"));
+        Path scriptsPath = Paths.get(cmd.getOptionValue("scripts"));
+        return new FileBotParameters(dirPath, scriptsPath.toAbsolutePath());
+
 
     }
 }

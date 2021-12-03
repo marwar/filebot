@@ -11,12 +11,11 @@ import java.util.List;
 
 @Data
 @EqualsAndHashCode
-public class Scripts implements Serializable
-{
+public class Scripts implements Serializable {
 
     @SerializedName("scripts")
     @Expose
-    private List<Script> scripts = new ArrayList<Script>();
+    private List<Script> scripts = new ArrayList<>();
     private final static long serialVersionUID = 3170013953086590923L;
 
 }

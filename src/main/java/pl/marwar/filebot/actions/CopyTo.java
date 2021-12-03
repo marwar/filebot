@@ -16,7 +16,7 @@ public class CopyTo implements TakeAction {
             System.out.println("kopiowanie: " + pathFile + " do: " + targetDirectoryPath);
             Files.copy(pathFile, targetDirectoryPath, StandardCopyOption.REPLACE_EXISTING);
         } catch (IOException e) {
-            System.out.println("kopiowanie pliku" + pathFile + " zakończone niepowodzeniem");
+            System.out.println("kopiowanie pliku " + pathFile + " zakończone niepowodzeniem");
         }
     }
 }
