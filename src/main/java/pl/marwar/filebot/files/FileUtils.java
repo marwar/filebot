@@ -17,14 +17,16 @@ public class FileUtils {
         StringBuilder targetDirectoryPathStringBuilder = new StringBuilder().append(actionParam);
         Path targetDirectoryPath = Paths.get(targetDirectoryPathStringBuilder.toString());
         checkDir(targetDirectoryPath);
-        targetDirectoryPathStringBuilder.append(StringUtils.endsWithAny("\\") ? StringUtils.EMPTY : "\\").append(
-                fileName);
+        if (!StringUtils.endsWith(String.valueOf(targetDirectoryPath), fileName)) {
+            targetDirectoryPathStringBuilder.append(StringUtils.endsWithAny("\\") ? StringUtils.EMPTY : "\\").append(
+                    fileName);
+        }
         targetDirectoryPath = Paths.get(targetDirectoryPathStringBuilder.toString());
         return targetDirectoryPath;
     }
 
     private static void checkDir(Path targetDirectoryPath) throws IOException {
-        if (!Files.isDirectory(targetDirectoryPath)) {
+        if (!Files.isDirectory(targetDirectoryPath) && Files.notExists(targetDirectoryPath)) {
             Files.createDirectories(targetDirectoryPath);
         }
     }

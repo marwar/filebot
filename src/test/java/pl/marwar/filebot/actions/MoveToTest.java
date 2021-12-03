@@ -22,9 +22,11 @@ public class MoveToTest {
         if (Files.notExists(path)) {
             Files.createFile(path);
         }
-        Action action = new Action("moveTo", String.valueOf(path.toAbsolutePath()));
+        Action action = new Action("moveTo", String.valueOf(path));
         moveTo.execute(path, action);
 
+        //boolean creationFileIsExist = Files.exists(FileUtils.getPathAndVeryficationDirectoryToAction(path, action));
+        //Assert.assertTrue(creationFileIsExist);
     }
 
     @Test

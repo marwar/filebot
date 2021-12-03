@@ -16,11 +16,16 @@ public class MoveTo implements TakeAction {
 
         try {
             Path targetDirectoryPath = FileUtils.getPathAndVeryficationDirectoryToAction(pathFile, action);
-            System.out.println("przenoszenie: " + pathFile + " do: " + targetDirectoryPath);
-            Files.copy(pathFile, targetDirectoryPath, StandardCopyOption.REPLACE_EXISTING);
+            if (!pathFile.equals(targetDirectoryPath)) {
+                System.out.println("przenoszenie: " + pathFile + " do: " + targetDirectoryPath);
+                Files.copy(pathFile, targetDirectoryPath, StandardCopyOption.REPLACE_EXISTING);
+            } else {
+                System.out.println("przenoszenie: " + pathFile + " -> katalog docelowy taki sam jak pierwotny");
+            }
         } catch (IOException e) {
             System.out.println("przenoszenie pliku " + pathFile + " zakończone niepowodzeniem");
             log.info(e.getMessage());
+            e.printStackTrace();
         }
     }
 
