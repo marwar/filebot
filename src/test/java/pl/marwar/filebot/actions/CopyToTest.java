@@ -9,13 +9,13 @@ import java.nio.file.Paths;
 
 public class CopyToTest {
 
+    @InjectMocks
+    CopyTo copyTo = new CopyTo();
+
     @Test
     public void testCopy() {
         Path path = Paths.get("src", "test", "resources", "testFile.txt");
         Action action = new Action("copyTo", "C:/testFileBot/");
         copyTo.execute(path, action);
     }
-
-    @InjectMocks
-    CopyTo copyTo = new CopyTo();
 }

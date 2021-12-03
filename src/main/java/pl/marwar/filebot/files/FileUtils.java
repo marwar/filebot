@@ -17,7 +17,8 @@ public class FileUtils {
         StringBuilder targetDirectoryPathStringBuilder = new StringBuilder().append(actionParam);
         Path targetDirectoryPath = Paths.get(targetDirectoryPathStringBuilder.toString());
         checkDir(targetDirectoryPath);
-        targetDirectoryPathStringBuilder.append(StringUtils.endsWithAny("\\") ? StringUtils.EMPTY : "\\").append(fileName);
+        targetDirectoryPathStringBuilder.append(StringUtils.endsWithAny("\\") ? StringUtils.EMPTY : "\\").append(
+                fileName);
         targetDirectoryPath = Paths.get(targetDirectoryPathStringBuilder.toString());
         return targetDirectoryPath;
     }

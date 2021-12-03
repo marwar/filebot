@@ -19,8 +19,9 @@ public class ModifiedDateLessThen implements Matchers {
         try {
             BasicFileAttributes fileAttributes =
                     Files.readAttributes(pathFile, BasicFileAttributes.class);
-            LocalDate lastModifiedFileDate = LocalDateTime.ofInstant(Instant.ofEpochSecond(fileAttributes.lastModifiedTime().toMillis()), TimeZone
-                    .getDefault().toZoneId()).toLocalDate();
+            LocalDate lastModifiedFileDate = LocalDateTime.ofInstant(
+                    Instant.ofEpochSecond(fileAttributes.lastModifiedTime().toMillis()), TimeZone
+                            .getDefault().toZoneId()).toLocalDate();
             LocalDate matchDate = LocalDate.parse(matcher.getParam(), DateTimeFormatter.ofPattern("yyyyMMdd"));
             return lastModifiedFileDate.isBefore(matchDate);
         } catch (IOException | DateTimeException e) {

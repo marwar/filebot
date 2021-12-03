@@ -12,7 +12,8 @@ public class MatchersRuleUtils {
     private static final Supplier<MatchersFactory> matchersFactory = MatchersFactory::new;
 
     public static List<Boolean> getMatchersRuleResultList(Script script, Path path) {
-        return script.getMatchers().stream().map(matcher -> getMatchResult(matchersFactory, path, matcher)).collect(Collectors.toList());
+        return script.getMatchers().stream().map(matcher -> getMatchResult(matchersFactory, path, matcher)).collect(
+                Collectors.toList());
     }
 
     private static Boolean getMatchResult(Supplier<MatchersFactory> matchersFactory, Path path, Matcher matcher) {

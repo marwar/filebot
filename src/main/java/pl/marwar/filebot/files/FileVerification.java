@@ -7,8 +7,9 @@ import pl.marwar.filebot.scripts.Script;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class FileVeryfication {
+public class FileVerification {
     public static boolean isFileToRunAction(Path path, Script script) {
-        return Files.exists(path) && !CollectionUtils.containsAny(MatchersRuleUtils.getMatchersRuleResultList(script, path), Boolean.FALSE);
+        return Files.exists(path) && !CollectionUtils.containsAny(
+                MatchersRuleUtils.getMatchersRuleResultList(script, path), Boolean.FALSE);
     }
 }

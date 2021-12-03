@@ -2,7 +2,7 @@ package pl.marwar.filebot;
 
 import org.apache.commons.cli.Options;
 import pl.marwar.filebot.actions.RunAction;
-import pl.marwar.filebot.files.FileVeryfication;
+import pl.marwar.filebot.files.FileVerification;
 import pl.marwar.filebot.files.GetFile;
 import pl.marwar.filebot.options.FileBotOptions;
 import pl.marwar.filebot.parameters.FileBotParameters;
@@ -28,8 +28,8 @@ public class FileBot {
         System.out.println("Pliki w katalogu:");
         pathsList.forEach(System.out::println);
 
-        pathsList.parallelStream().forEach(path -> scripts.getScripts().stream().forEach(script -> {
-            if (FileVeryfication.isFileToRunAction(path, script)) {
+        pathsList.parallelStream().forEach(path -> scripts.getScripts().forEach(script -> {
+            if (FileVerification.isFileToRunAction(path, script)) {
                 RunAction.runAction(script, path);
             }
         }));

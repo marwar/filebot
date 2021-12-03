@@ -13,6 +13,9 @@ import java.nio.file.Paths;
 
 public class MoveToTest {
 
+    @InjectMocks
+    MoveTo moveTo = new MoveTo();
+
     @Test
     public void testMoveToIsTheSameDir() throws IOException {
         Path path = Paths.get("src", "test", "resources", "testFile.txt");
@@ -41,7 +44,4 @@ public class MoveToTest {
         }
 
     }
-
-    @InjectMocks
-    MoveTo moveTo = new MoveTo();
 }

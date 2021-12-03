@@ -13,9 +13,9 @@ import java.util.List;
 @EqualsAndHashCode
 public class Scripts implements Serializable {
 
+    private final static long serialVersionUID = 3170013953086590923L;
     @SerializedName("scripts")
     @Expose
     private List<Script> scripts = new ArrayList<>();
-    private final static long serialVersionUID = 3170013953086590923L;
 
 }

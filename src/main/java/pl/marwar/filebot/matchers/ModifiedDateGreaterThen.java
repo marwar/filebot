@@ -19,8 +19,9 @@ public class ModifiedDateGreaterThen implements Matchers {
         try {
             BasicFileAttributes fileAttributes =
                     Files.readAttributes(pathFile, BasicFileAttributes.class);
-            LocalDate lastModifiedFileDate = LocalDateTime.ofInstant(Instant.ofEpochSecond(fileAttributes.lastModifiedTime().toMillis()), TimeZone
-                    .getDefault().toZoneId()).toLocalDate();
+            LocalDate lastModifiedFileDate = LocalDateTime.ofInstant(
+                    Instant.ofEpochSecond(fileAttributes.lastModifiedTime().toMillis()), TimeZone
+                            .getDefault().toZoneId()).toLocalDate();
             LocalDate matchDate = LocalDate.parse(matcher.getParam(), DateTimeFormatter.ofPattern("yyyyMMdd"));
             return lastModifiedFileDate.isAfter(matchDate);
         } catch (IOException e) {

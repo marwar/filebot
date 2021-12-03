@@ -13,13 +13,13 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class Action implements Serializable {
 
+    private final static long serialVersionUID = 5321685044186852023L;
     @SerializedName("actionName")
     @Expose
     private String actionName;
     @SerializedName("actionParam")
     @Expose
     private String actionParam;
-    private final static long serialVersionUID = 5321685044186852023L;
 
 
 }

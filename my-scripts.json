@@ -1,15 +1,15 @@
 {
   "scripts": [
     {
-      "name":"Delete reports",
+      "name": "Delete reports",
       "matchers": [
         {
           "matcherRule": "nameContains",
-          "param":"RAPORT"
+          "param": "RAPORT"
         },
         {
           "matcherRule": "extensionIsNot",
-          "param":"pdf"
+          "param": "pdf"
         }
       ],
       "action": {
@@ -17,11 +17,11 @@
       }
     },
     {
-      "name":"Move old photos to MY_ALBUM_2020",
+      "name": "Move old photos to MY_ALBUM_2020",
       "matchers": [
         {
           "matcherRule": "nameContains",
-          "param":"IMG"
+          "param": "IMG"
         },
         {
           "matcherRule": "modifiedDateLessThen",
@@ -33,8 +33,8 @@
         }
       ],
       "action": {
-        "actionName":"moveTo",
-        "actionParam":"C:/Users/Andrzej/MY_ALBUM_2020"
+        "actionName": "moveTo",
+        "actionParam": "C:/Users/Andrzej/MY_ALBUM_2020"
       }
     }
   ]

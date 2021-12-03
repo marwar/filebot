@@ -13,6 +13,7 @@ import java.util.List;
 @EqualsAndHashCode
 public class Script implements Serializable {
 
+    private final static long serialVersionUID = 1845086238379493336L;
     @SerializedName("name")
     @Expose
     private String name;
@@ -22,7 +23,6 @@ public class Script implements Serializable {
     @SerializedName("action")
     @Expose
     private Action action;
-    private final static long serialVersionUID = 1845086238379493336L;
 
 
 }

@@ -9,16 +9,15 @@ import java.io.Serializable;
 
 @Data
 @EqualsAndHashCode
-public class Matcher implements Serializable
-{
+public class Matcher implements Serializable {
 
+    private final static long serialVersionUID = 4321517773106221920L;
     @SerializedName("matcherRule")
     @Expose
     private String matcherRule;
     @SerializedName("param")
     @Expose
     private String param;
-    private final static long serialVersionUID = 4321517773106221920L;
 
 
 }

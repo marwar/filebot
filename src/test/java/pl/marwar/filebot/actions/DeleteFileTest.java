@@ -12,6 +12,9 @@ import java.nio.file.Paths;
 
 public class DeleteFileTest {
 
+    @InjectMocks
+    DeleteFile deleteFile = new DeleteFile();
+
     @Test
     public void testDeleteFile() throws IOException {
         Path path = Paths.get("src", "test", "resources", "testFile.txt");
@@ -23,7 +26,4 @@ public class DeleteFileTest {
         Assert.assertTrue(Files.notExists(path));
         Files.createFile(path);
     }
-
-    @InjectMocks
-    DeleteFile deleteFile = new DeleteFile();
 }
