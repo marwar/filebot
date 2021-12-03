@@ -20,6 +20,7 @@ public class MoveTo implements TakeAction {
                 System.out.println("przenoszenie: " + pathFile + " do: " + targetDirectoryPath);
                 Files.copy(pathFile, targetDirectoryPath, StandardCopyOption.REPLACE_EXISTING);
             } else {
+                // nie ma sensu wykonywać operacji na pliku skoro to by było przeniesienie w to samo miejsce
                 System.out.println("przenoszenie: " + pathFile + " -> katalog docelowy taki sam jak pierwotny");
             }
         } catch (IOException e) {

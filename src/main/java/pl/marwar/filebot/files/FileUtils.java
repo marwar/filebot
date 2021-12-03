@@ -20,8 +20,8 @@ public class FileUtils {
         if (!StringUtils.endsWith(String.valueOf(targetDirectoryPath), fileName)) {
             targetDirectoryPathStringBuilder.append(StringUtils.endsWithAny("\\") ? StringUtils.EMPTY : "\\").append(
                     fileName);
+            targetDirectoryPath = Paths.get(targetDirectoryPathStringBuilder.toString());
         }
-        targetDirectoryPath = Paths.get(targetDirectoryPathStringBuilder.toString());
         return targetDirectoryPath;
     }
 

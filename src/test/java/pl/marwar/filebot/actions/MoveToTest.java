@@ -25,8 +25,8 @@ public class MoveToTest {
         Action action = new Action("moveTo", String.valueOf(path));
         moveTo.execute(path, action);
 
-        //boolean creationFileIsExist = Files.exists(FileUtils.getPathAndVeryficationDirectoryToAction(path, action));
-        //Assert.assertTrue(creationFileIsExist);
+        boolean creationFileIsExist = Files.exists(FileUtils.getPathAndVeryficationDirectoryToAction(path, action));
+        Assert.assertTrue(creationFileIsExist);
     }
 
     @Test
