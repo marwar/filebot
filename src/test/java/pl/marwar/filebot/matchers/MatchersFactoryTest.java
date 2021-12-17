@@ -10,35 +10,35 @@ public class MatchersFactoryTest {
 
     @Test
     public void testExtensionIs() {
-        Assert.assertEquals(MatchersRuleMap.getMatcherRuleMap().get("extensionIs"),
+        Assert.assertEquals(MatchersRuleMap.getMatcherRule("extensionIs"),
                 matchersFactory.getMatcher("extensionIs"));
 
     }
 
     @Test
     public void testExtensionIsNot() {
-        Assert.assertEquals(MatchersRuleMap.getMatcherRuleMap().get("extensionIsNot"),
+        Assert.assertEquals(MatchersRuleMap.getMatcherRule("extensionIsNot"),
                 matchersFactory.getMatcher("extensionIsNot"));
 
     }
 
     @Test
     public void testModifiedDateGreaterThen() {
-        Assert.assertEquals(MatchersRuleMap.getMatcherRuleMap().get("modifiedDateGreaterThen"),
+        Assert.assertEquals(MatchersRuleMap.getMatcherRule("modifiedDateGreaterThen"),
                 matchersFactory.getMatcher("modifiedDateGreaterThen"));
 
     }
 
     @Test
     public void testModifiedDateLessThen() {
-        Assert.assertEquals(MatchersRuleMap.getMatcherRuleMap().get("modifiedDateLessThen"),
+        Assert.assertEquals(MatchersRuleMap.getMatcherRule("modifiedDateLessThen"),
                 matchersFactory.getMatcher("modifiedDateLessThen"));
 
     }
 
     @Test
     public void testNameContains() {
-        Assert.assertEquals(MatchersRuleMap.getMatcherRuleMap().get("nameContains"),
+        Assert.assertEquals(MatchersRuleMap.getMatcherRule("nameContains"),
                 matchersFactory.getMatcher("nameContains"));
 
     }

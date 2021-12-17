@@ -10,17 +10,17 @@ public class ActionsFactoryTest {
 
     @Test
     public void testGetCopyAction() {
-        Assert.assertEquals(ActionsMap.getActionsMap().get("copyTo"), actionsFactory.getAction("copyTo"));
+        Assert.assertEquals(ActionsMap.getAction("copyTo"), actionsFactory.getAction("copyTo"));
     }
 
     @Test
     public void testGetDeleteFileAction() {
-        Assert.assertEquals(ActionsMap.getActionsMap().get("deleteFile"), actionsFactory.getAction("deleteFile"));
+        Assert.assertEquals(ActionsMap.getAction("deleteFile"), actionsFactory.getAction("deleteFile"));
     }
 
     @Test
     public void testGetMoveToAction() {
-        Assert.assertEquals(ActionsMap.getActionsMap().get("moveTo"), actionsFactory.getAction("moveTo"));
+        Assert.assertEquals(ActionsMap.getAction("moveTo"), actionsFactory.getAction("moveTo"));
     }
 
     @Test(expected = IllegalArgumentException.class)

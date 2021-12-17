@@ -13,7 +13,7 @@ public class ActionsMap {
         actionsMap.put("copyTo", CopyTo::new);
     }
 
-    public static Map<String, Supplier<TakeAction>> getActionsMap() {
-        return actionsMap;
+    public static Supplier<TakeAction> getAction(String actionName) {
+        return actionsMap.get(actionName);
     }
 }

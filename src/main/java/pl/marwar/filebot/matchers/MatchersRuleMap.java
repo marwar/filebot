@@ -15,8 +15,8 @@ public class MatchersRuleMap {
         matchersRuleMap.put("nameContains", NameContains::new);
     }
 
-    public static Map<String, Supplier<Matchers>> getMatcherRuleMap() {
-        return matchersRuleMap;
+    public static Supplier<Matchers> getMatcherRule(String ruleName) {
+        return matchersRuleMap.get(ruleName);
     }
 }
 

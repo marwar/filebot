@@ -5,7 +5,7 @@ import java.util.function.Supplier;
 public class ActionsFactory {
     public Supplier<TakeAction> getAction(String actionName) {
 
-        Supplier<TakeAction> action = ActionsMap.getActionsMap().get(actionName);
+        Supplier<TakeAction> action = ActionsMap.getAction(actionName);
         if (action != null) {
             return action;
         }
